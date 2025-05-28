@@ -1,11 +1,16 @@
 import { Link, useParams } from "react-router-dom";
 import books from "../data/booksData";
 import { MoveLeft, Star, Tag, User } from "lucide-react";
+import { useSelector } from "react-redux";
 
 export default function BookDetails() {
   const { id } = useParams();
   // console.log("Book ID:", id);
-  const book = books.find((book) => book.id.toString() === id);
+
+  const addedBooks = useSelector((state) => state.books.list);
+  const allBooks = [...books, ...addedBooks];
+
+  const book = allBooks.find((book) => book.id.toString() === id);
   if (!book)
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">

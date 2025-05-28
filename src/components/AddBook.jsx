@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Book } from "lucide-react";
+import { useDispatch } from "react-redux";
+import { addBook } from "../redux/booksSlice";
 
 const AddBook = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
     title: "",
@@ -76,7 +79,8 @@ const AddBook = () => {
         rating: Number(formData.rating),
         id: Date.now(), // simple ID
       };
-      saveToLocalStorage(newBook);
+      dispatch(addBook(newBook));
+      navigate("/books");
       setFormData({
         title: "",
         author: "",
@@ -294,14 +298,14 @@ const AddBook = () => {
               <button
                 type="button"
                 onClick={() => navigate("/books")}
-                className="px-6 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50"
+                className="px-6 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 cursor-pointer"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 flex items-center ${
+                className={`px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 flex items-center cursor-pointer ${
                   isSubmitting ? "opacity-75 cursor-not-allowed" : ""
                 }`}
               >

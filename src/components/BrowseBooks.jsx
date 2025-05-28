@@ -2,12 +2,16 @@ import { useMemo, useState } from "react";
 import books from "../data/booksData";
 import { Filter, Search } from "lucide-react";
 import BookCard from "./ui/BookCard";
+import { useSelector } from "react-redux";
 
 export default function BrowseBooks() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const addedBooks = useSelector((state) => state.books.list);
+
+  const allBooks = [...books, ...addedBooks];
   const filteredBooks = useMemo(() => {
-    let filtered = books;
+    let filtered = allBooks;
 
     // Filter by category
     if (selectedCategory !== "all") {
