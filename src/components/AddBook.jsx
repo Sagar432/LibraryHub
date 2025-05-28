@@ -98,18 +98,17 @@ const AddBook = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <div className="max-w-4xl mx-auto px-4 py-4 sm:py-8 bg-gray-50">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">
+          <h1 className="text-xl sm:text-4xl font-bold text-gray-800 mb-1 sm:mb-4">
             Add New Book
           </h1>
-          <p className="text-gray-600">
+          <p className="text-gray-600 text-sm sm:text-base">
             Fill out the form below to add a new book to the library.
           </p>
         </div>
 
-        <div className="bg-white rounded-lg shadow-lg p-8">
+        <div className="bg-white rounded-lg shadow-lg p-4 sm:p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
@@ -325,7 +324,6 @@ const AddBook = () => {
           </form>
         </div>
       </div>
-    </div>
   );
 };
 

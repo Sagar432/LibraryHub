@@ -38,22 +38,22 @@ export default function BrowseBooks() {
 
   const categories = ["all", "fiction", "non-fiction", "sci-fi", "fantasy"];
   return (
-    <section className="pt-8 px-[3vw]">
+    <section className="pt-4 sm:pt-8 px-[3vw]">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">
+        <h1 className="text-xl sm:text-4xl font-bold text-gray-800 sm:mb-4">
           {selectedCategory === "all"
             ? "All Books"
             : selectedCategory.charAt(0).toUpperCase() +
               selectedCategory.slice(1)}
         </h1>
-        <p className="text-gray-600">
+        <p className="text-gray-600 text-xs sm:text-base">
           {filteredBooks.length} book{filteredBooks.length !== 1 ? "s" : ""}{" "}
           found
         </p>
       </div>
 
       {/* Search and Filter Bar */}
-      <div className="bg-white rounded-lg shadow-md p-6 mb-8 mx-[16vw]">
+      <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 mb-8 mx-[4vw] sm:mx-[16vw]">
         <div className="flex flex-col md:flex-row gap-4">
           {/* Search Bar */}
           <div className="flex-1 relative">
@@ -73,7 +73,7 @@ export default function BrowseBooks() {
             <select
               value={selectedCategory}
               onChange={(e) => handleCategoryChange(e.target.value)}
-              className="pl-10 pr-8 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white min-w-[150px]"
+              className="pl-10 pr-8 w-full py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white min-w-[150px]"
             >
               {categories.map((cat) => (
                 <option key={cat} value={cat}>
@@ -88,7 +88,7 @@ export default function BrowseBooks() {
       </div>
       {/* Books Grid */}
         {filteredBooks.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-[2vw] sm:px-0">
             {filteredBooks.map((book) => (
               <BookCard key={book.id} book={book} showCategory />
             ))}

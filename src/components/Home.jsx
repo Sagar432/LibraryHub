@@ -35,33 +35,33 @@ export default function Home() {
     <div>
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-center py-8">
-        <h1 className="text-4xl font-bold mb-6">
+        <h1 className="text-2xl sm:text-4xl font-semibold sm:font-bold mb-2 sm:mb-6">
           Welcome to <span className="text-primary">LibraryHub</span>
         </h1>
-        <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+        <p className="text-sm sm:text-xl text-muted-foreground mb-8 sm:max-w-2xl px-[2vw] sm:px-0">
           Discover thousands of books across various genres. From timeless
           classics to contemporary bestsellers, find your next great read in our
           comprehensive collection.
         </p>
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center text-sm sm:text-base">
           <Link
             to={"/books"}
-            className="flex items-center gap-2 bg-white text-blue-600 py-2 px-4 rounded-md font-semibold"
+            className="flex items-center gap-1 sm:gap-2 bg-white text-blue-600 py-1 sm:py-2 pl-1 pr-2 sm:px-4 rounded-md font-semibold"
           >
-            <Search />
+            <Search className="h-4 sm:h-6" />
             Start Browsing
           </Link>
         </div>
       </section>
       {/* Stats Section */}
-      <section className="flex gap-8 items-center justify-center w-full mt-6 mb-12">
+      <section className="flex flex-col sm:flex-row gap-8 items-center justify-center w-full mt-6 mb-4 sm:mb-12">
         <StatsCard icon={Book} value={books.length} title={"Books Available"} />
         <StatsCard icon={Users} value={10} title={"Active Readers"} />
         <StatsCard icon={Award} value={500} title={"Award Winners"} />
       </section>
       {/* Categories Section */}
-      <section className="mb-12">
-        <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+      <section className="mb-4 sm:mb-12">
+        <h2 className="text-lg sm:text-3xl font-bold text-gray-800 mb-4 sm:mb-8 text-center">
           Browse by Category
         </h2>
         <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-8">
@@ -92,9 +92,9 @@ export default function Home() {
         </div>
       </section>
       {/* Popular Books Section */}
-      <section className="px-[3vw]">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-800">Popular Books</h2>
+      <section className="px-[5vw] sm:px-[3vw]">
+        <div className="flex justify-between items-center mb-4 sm:mb-8">
+          <h2 className="text-lg sm:text-3xl font-bold text-gray-800">Popular Books</h2>
           <Link
             to="/books"
             className="text-blue-600 hover:text-blue-700 font-medium"
@@ -103,7 +103,7 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-[2vw] sm:px-0">
           {books.map((book) => (
             <BookCard key={book.id} book={book} showCategory />
           ))}
